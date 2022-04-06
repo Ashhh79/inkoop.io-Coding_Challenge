@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge - Akash Kushwaha!</title>
+
+    <script>
+        var counter = 0;
+        var player2nd = 0;
+        var player1st = 0;
+        function shooting() {
+            var player_1_health = 100;
+            var player_2_health = 100;
+            counter++;
+            if (counter <= 5 && player1st < 3 && player2nd < 3) {
+                for (let rounds = counter; rounds <= counter; rounds++) {
+                    console.log("rounds", rounds);
+                    for (let index = 0; index < 500; index++) {
+                        power = Math.floor(Math.random() * 6);
+                        // console.log(power);
+                        if (index % 2 == 0) {
+                            player_2_health = player_2_health - power;
+
+                            if (player_2_health <= 0) {
+                                player1st = player1st + 1;
+                                console.log("player-1-Win", player1st);
+                                document.getElementById('playerId1').innerHTML = player1st;
+
+                                break;
+                            }
+
+                        }
+                        else {
+                            player_1_health = player_1_health - power;
+                            if (player_1_health <= 0) {
+                                player2nd = player2nd + 1;
+                                console.log("player-2-Win", player2nd);
+                                document.getElementById('playerId2').innerHTML = player2nd;
+                                break;
+
+                            }
+
+                        }
+                    }
+                }
+
+
+
+            }
+            if (player1st == 3) {
+                document.getElementById('won').innerHTML = "Player 1st Won the Match";
+            }
+
+            if (player2nd == 3) {
+                document.getElementById('won').innerHTML = "Player 2nd Won the Match";
+
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+    <button type="button" onclick=shooting()>Play Game</button>
+    <div>
+        <span>Player - 1st - Won :</span>
+        <span id="playerId1"></span>
+    </div>
+    <div>
+        <span>Player - 2nd - Won :</span>
+        <span id="playerId2"></span>
+    </div>
+    <div>
+        <span id="won"></span>
+    </div>
+
+
+
+</body>
+
+</html>
